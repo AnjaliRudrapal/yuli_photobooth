@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yuli PhotoBooth</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            Yuli <span>PhotoBooth</span>
+        </div>
+
+        <button id="homeBtn" class="nav-btn">
+            Home
+        </button>
+
+    </header>
+
+
+    <!-- HOME -->
+
+    <section id="homePage" class="page active">
+
+        <div class="hero">
+
+            <p class="tag">BROWSER PHOTOBOOTH</p>
+
+            <h1>
+                Capture your
+                <span>moments.</span>
+            </h1>
+
+            <p class="description">
+                Take three photos, create a collage,
+                apply beautiful filters and save your memories.
+            </p>
+
+            <button id="startBtn" class="primary-btn">
+                Start PhotoBooth
+            </button>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="icon">📷</div>
+                <h3>Capture</h3>
+                <p>Take three timed photos using your camera.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🎨</div>
+                <h3>Style</h3>
+                <p>Apply filters and choose your collage layout.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">💾</div>
+                <h3>Save</h3>
+                <p>Download your finished collage as an image.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAMERA -->
+
+    <section id="cameraPage" class="page">
+
+        <div class="camera-container">
+
+            <div class="camera-header">
+
+                <div>
+                    <p class="tag">STEP 1</p>
+                    <h2>Take your photos</h2>
+                </div>
+
+                <span id="photoCount">
+                    0 / 3
+                </span>
+
+            </div>
+
+
+            <div class="camera-box">
+
+                <video
+                    id="video"
+                    autoplay
+                    playsinline
+                    muted>
+                </video>
+
+                <div id="cameraMessage" class="camera-message">
+
+                    <div class="camera-icon">
+                        📷
+                    </div>
+
+                    <h3>Camera access required</h3>
+
+                    <p>
+                        Allow camera access to start taking photos.
+                    </p>
+
+                    <button
+                        id="enableCamera"
+                        class="primary-btn">
+                        Enable Camera
+                    </button>
+
+                </div>
+
+                <div
+                    id="countdown"
+                    class="countdown">
+                </div>
+
+                <div
+                    id="flash"
+                    class="flash">
+                </div>
+
+            </div>
+
+
+            <div class="camera-controls">
+
+                <button
+                    id="mirrorBtn"
+                    class="control-btn">
+                    Mirror: ON
+                </button>
+
+                <button
+                    id="captureBtn"
+                    class="shutter">
+                    <span></span>
+                </button>
+
+                <button
+                    id="clearBtn"
+                    class="control-btn">
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div
+                id="filmstrip"
+                class="filmstrip">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDITOR -->
+
+    <section id="editorPage" class="page">
+
+        <div class="editor-container">
+
+            <div class="editor-header">
+
+                <div>
+                    <p class="tag">STEP 2</p>
+
+                    <h2>
+                        Create your collage
+                    </h2>
+                </div>
+
+                <button
+                    id="retakeBtn"
+                    class="control-btn">
+                    Retake
+                </button>
+
+            </div>
+
+
+            <div class="editor-layout">
+
+
+                <!-- CONTROLS -->
+
+                <aside class="controls-panel">
+
+                    <div class="control-section">
+
+                        <h3>Filter</h3>
+
+                        <div class="filter-grid">
+
+                            <button
+                                class="filter active"
+                                data-filter="normal">
+                                Normal
+                            </button>
+
+                            <button
+                                class="filter"
+                                data-filter="grayscale">
+                                B&W
+                            </button>
+
+                            <button
+                                class="filter"
+                                data-filter="sepia">
+                                Sepia
+                            </button>
+
+                            <button
+                                class="filter"
+                                data-filter="vintage">
+                                Vintage
+                            </button>
+
+                            <button
+                                class="filter"
+                                data-filter="pink">
+                                Pink
+                            </button>
+
+                            <button
+                                class="filter"
+                                data-filter="moody">
+                                Moody
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="control-section">
+
+                        <h3>Layout</h3>
+
+                        <div class="layout-grid">
+
+                            <button
+                                class="layout active"
+                                data-layout="grid">
+
+                                <span class="layout-icon grid-icon"></span>
+
+                                Grid
+
+                            </button>
+
+
+                            <button
+                                class="layout"
+                                data-layout="strip">
+
+                                <span class="layout-icon strip-icon"></span>
+
+                                Strip
+
+                            </button>
+
+
+                            <button
+                                class="layout"
+                                data-layout="focus">
+
+                                <span class="layout-icon focus-icon"></span>
+
+                                Focus
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="downloadBtn"
+                        class="primary-btn full">
+                        Download PNG
+                    </button>
+
+
+                    <button
+                        id="printBtn"
+                        class="control-btn full">
+                        Print
+                    </button>
+
+                </aside>
+
+
+                <!-- CANVAS -->
+
+                <main class="canvas-area">
+
+                    <canvas
+                        id="canvas"
+                        width="1000"
+                        height="1000">
+                    </canvas>
+
+                </main>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div
+        id="toast"
+        class="toast">
+    </div>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
